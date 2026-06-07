@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Pham Thanh Nam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1612;
+    --bone: #f5f0e8;
+    --warm: #c4956a;
+    --dust: #9a8878;
+    --deep: #2c1810;
+    --sidebar-w: 280px;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bone);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── SIDEBAR ─────────────────────────────────── */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--bone);
+    padding: 48px 36px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(196,149,106,0.2);
+    z-index: 100;
+  }
+
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    right: -1px; top: 20%; bottom: 20%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--warm), transparent);
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--deep);
+    margin-bottom: 60px;
+    line-height: 1.3;
+    text-decoration: none;
+    display: block;
+  }
+
+  .logo span {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--warm);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dust);
+    text-decoration: none;
+    margin-bottom: 48px;
+    transition: color 0.3s var(--ease), gap 0.3s var(--ease);
+  }
+
+  .back-link:hover { color: var(--warm); gap: 14px; }
+  .back-link:hover svg { transform: translateX(-3px); }
+  .back-link svg { transition: transform 0.3s var(--ease); }
+
+  .sidebar-info {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .info-value {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--dust);
+    line-height: 1.6;
+  }
+
+  .info-value a {
+    color: var(--dust);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .info-value a:hover { color: var(--warm); }
+
+  .social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .social-links a {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--dust);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .social-links a:hover { color: var(--warm); }
+
+  /* ── MAIN ────────────────────────────────────── */
+  .main {
+    margin-left: var(--sidebar-w);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── CONTACT HERO ────────────────────────────── */
+  .contact-hero {
+    padding: 120px 80px 80px;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) 0.2s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .contact-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 24px;
+  }
+
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 300;
+    color: var(--deep);
+    line-height: 1.05;
+    margin-bottom: 0;
+  }
+
+  .contact-title em {
+    font-style: italic;
+    color: var(--warm);
+  }
+
+  /* ── FORM SECTION ────────────────────────────── */
+  .form-section {
+    padding: 0 80px 120px;
+    flex: 1;
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) 0.45s forwards;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(196,149,106,0.35), transparent);
+  }
+
+  /* Form layout */
+  .contact-form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-field.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm);
+  }
+
+  input, textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(196,149,106,0.3);
+    padding: 10px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.3s var(--ease);
+    width: 100%;
+    resize: none;
+    caret-color: var(--warm);
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: rgba(154,136,120,0.45);
+    font-style: italic;
+  }
+
+  input:focus, textarea:focus {
+    border-color: var(--warm);
+  }
+
+  textarea { min-height: 120px; }
+
+  /* Submit button */
+  .submit-wrap {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: none;
+    border: 1px solid rgba(196,149,106,0.4);
+    padding: 14px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.3s var(--ease), color 0.3s var(--ease),
+                border-color 0.3s var(--ease), gap 0.3s var(--ease);
+  }
+
+  .btn-submit:hover {
+    background: var(--deep);
+    color: var(--bone);
+    border-color: var(--deep);
+    gap: 20px;
+  }
+
+  .btn-submit svg { transition: transform 0.3s var(--ease); }
+  .btn-submit:hover svg { transform: translateX(4px); }
+
+  .form-note {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--dust);
+    font-style: italic;
+  }
+
+  /* Success state */
+  .success-msg {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-left: 2px solid var(--warm);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dust);
+    font-style: italic;
+  }
+
+  .success-msg.show { display: flex; }
+
+  /* ── CURSOR ──────────────────────────────────── */
+  .cursor {
+    position: fixed;
+    width: 8px; height: 8px;
+    background: var(--warm);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s var(--ease), height 0.3s var(--ease);
+    mix-blend-mode: multiply;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(196,149,106,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: left 0.12s var(--ease), top 0.12s var(--ease),
+                width 0.4s var(--ease), height 0.4s var(--ease);
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 900px) {
+    :root { --sidebar-w: 0px; }
+
+    .sidebar {
+      position: relative;
+      width: 100%;
+      padding: 24px;
+      border-right: none;
+      border-bottom: 1px solid rgba(196,149,106,0.2);
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .sidebar::after { display: none; }
+    .logo { margin-bottom: 0; }
+    .sidebar-info { display: none; }
+
+    .main { margin-left: 0; }
+    .contact-hero { padding: 60px 24px 40px; }
+    .form-section { padding: 0 24px 80px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <a href="index.html" class="logo">
+    Pham Thanh Nam
+    <span>3D Artist & Visual Designer</span>
+  </a>
+
+  <a href="index.html#work" class="back-link">
+    <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+      <path d="M0 5H15M5 1L1 5L5 9" stroke="currentColor" stroke-width="1.2"/>
+    </svg>
+    Back to Work
+  </a>
+
+  <div class="sidebar-info">
+    <div>
+      <span class="info-label">Email</span>
+      <div class="info-value">
+        <a href="mailto:hello@phamthanhnam.com">hello@phamthanhnam.com</a>
+      </div>
+    </div>
+
+    <div>
+      <span class="info-label">Based in</span>
+      <div class="info-value">Hà Nội, Việt Nam</div>
+    </div>
+
+    <div>
+      <span class="info-label">Follow</span>
+      <div class="social-links">
+        <a href="#">Behance</a>
+        <a href="#">ArtStation</a>
+        <a href="#">IG</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- Main -->
+<main class="main">
+
+  <!-- Hero text -->
+  <div class="contact-hero">
+    <p class="contact-eyebrow">Get in touch</p>
+    <h1 class="contact-title">
+      Let's create<br>something <em>together</em>
+    </h1>
+  </div>
+
+  <!-- Form -->
+  <section class="form-section">
+    <div class="divider">
+      <div class="divider-line"></div>
+    </div>
+
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="email@example.com" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Project collaboration, commission...">
+      </div>
+
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="He" required></textarea>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" class="btn-submit">
+          Send Message
+          <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
+            <path d="M0 5H17M12 1L16 5L12 9" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </button>
+        <span class="form-note">I will respond within 24–48 hours.</span>
+      </div>
+
+      <div class="success-msg" id="successMsg">
+        ✦ Thanks! Message sent — I'll be in touch as soon as possible.
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+
+  (function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a, button, input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '14px';
+      cursor.style.height = '14px';
+      ring.style.width = '54px';
+      ring.style.height = '54px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '8px';
+      cursor.style.height = '8px';
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+    });
+  });
+
+  // Form submit (demo — không gửi thật)
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      document.getElementById('contactForm').reset();
+      document.getElementById('successMsg').classList.add('show');
+      btn.style.display = 'none';
+      document.querySelector('.form-note').style.display = 'none';
+    }, 800);
+  }
+</script>
+</body>
+</html>
