@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cozy Kitchen — Pham Thanh Nam</title>
+<title>Ball with Tail — Pham Thanh Nam</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,102 +25,6 @@
     background: var(--bone);
     color: var(--ink);
     overflow-x: hidden;
-  }
-  
-  /* ── IMAGE LAYOUT SYSTEM ─────────────────────── */
-  /*
-    Sử dụng các class sau để bố cục ảnh linh hoạt:
-
-    .layout-full        → 1 ảnh full width
-    .layout-2col        → 2 ảnh bằng nhau
-    .layout-3col        → 3 ảnh bằng nhau
-    .layout-1-2         → trái nhỏ, phải to (1:2)
-    .layout-2-1         → trái to, phải nhỏ (2:1)
-    .layout-3-2         → trái to hơn (3:2)
-
-    Mỗi block bọc trong <div class="img-block layout-XXX reveal">
-    Mỗi ảnh bọc trong <div class="img-item"> bên trong
-  */
-
-  .images-stack {
-    padding: 40px 48px 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* Base block */
-  .img-block {
-    display: grid;
-    gap: 12px;
-    width: 100%;
-  }
-
-  /* Layout variants */
-  .img-block.layout-full  { grid-template-columns: 1fr; }
-  .img-block.layout-2col  { grid-template-columns: 1fr 1fr; }
-  .img-block.layout-3col  { grid-template-columns: 1fr 1fr 1fr; }
-  .img-block.layout-1-2   { grid-template-columns: 1fr 2fr; }
-  .img-block.layout-2-1   { grid-template-columns: 2fr 1fr; }
-  .img-block.layout-3-2   { grid-template-columns: 3fr 2fr; }
-
-  /* Each image cell */
-  .img-item {
-    overflow: hidden;
-    border-radius: 3px;
-    cursor: zoom-in;
-    position: relative;
-  }
-
-  .img-item .img-placeholder,
-  .img-item img {
-    width: 100%;
-    height: 100%;
-    min-height: 280px;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.6s var(--ease);
-  }
-
-  /* Full-width images don't need min-height constraint */
-  .layout-full .img-item .img-placeholder,
-  .layout-full .img-item img {
-    min-height: 400px;
-  }
-
-  .img-item:hover .img-placeholder,
-  .img-item:hover img { transform: scale(1.015); }
-
-  /* Legacy single-image support */
-  .stack-img {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 3px;
-    cursor: zoom-in;
-  }
-
-  .stack-img .img-placeholder,
-  .stack-img img {
-    width: 100%;
-    display: block;
-    transition: transform 0.6s var(--ease);
-  }
-
-  .stack-img img { object-fit: cover; }
-
-  .stack-img:hover .img-placeholder,
-  .stack-img:hover img { transform: scale(1.015); }
-
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   /* Noise */
@@ -817,12 +721,12 @@
 
 <!-- Sidebar -->
 <aside class="sidebar">
-  <a href="index.html" class="logo">
+  <a href="portfolio.html" class="logo">
     Pham Thanh Nam
     <span>3D Artist & Visual Designer</span>
   </a>
 
-  <a href="index.html#work" class="back-link">
+  <a href="portfolio.html#work" class="back-link">
     <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
       <path d="M0 5H15M5 1L1 5L5 9" stroke="currentColor" stroke-width="1.2"/>
     </svg>
@@ -832,47 +736,47 @@
   <div class="project-meta">
     <div class="meta-item">
       <div class="meta-label">Project</div>
-      <div class="meta-value">Cozy Kitchen</div>
+      <div class="meta-value">Ball with Tail</div>
     </div>
 
     <div class="meta-item">
       <div class="meta-label">Year</div>
-      <div class="meta-value">2024</div>
+      <div class="meta-value">2023</div>
     </div>
 
     <div class="meta-item">
       <div class="meta-label">Category</div>
-      <div class="meta-value">Environment Design</div>
+      <div class="meta-value">Character Design</div>
     </div>
 
     <div class="meta-item">
-      <div class="meta-label">Tools</div>
-      <div class="meta-value">Blender</div>
+      <div class="meta-label">Role</div>
+      <div class="meta-value">3D Modeling · Rigging · Rendering</div>
     </div>
 
     <div class="meta-item">
       <div class="meta-label">Tags</div>
       <div class="meta-tags">
-        <span class="tag">Environment</span>
+        <span class="tag">Character</span>
         <span class="tag">3D</span>
         <span class="tag">Stylized</span>
-        <span class="tag">Interior</span>
+        <span class="tag">Creature</span>
       </div>
     </div>
   </div>
 
   <div class="sidebar-footer">
     <div class="project-nav">
-      <a href="bathing-ducks.html">
-        <span>
-          <span class="nav-dir">← Prev</span>
-          Bathing Ducks
-        </span>
-      </a>
       <a href="sa-10-grumble.html">
         <span>
-          <span class="nav-dir">Next →</span>
+          <span class="nav-dir">← Prev</span>
           SA-10 Grumble
+        </span>
+      </a>
+      <a href="bedroom-in-book.html">
+        <span>
+          <span class="nav-dir">Next →</span>
+          Bed Room Inside a Book
         </span>
       </a>
     </div>
@@ -884,39 +788,28 @@
 
   <!-- Vertical image stack -->
   <section class="images-stack">
-   <!-- 2 ảnh bằng nhau -->
-    <div class="img-block layout-2col reveal">
-      <div class="img-item">
-        <img src="images\cozy kitchen (1).png">
-      </div>
-      <div class="img-item">
-        <img src="images\cozy kitchen_grid.png">
-      </div>
+    <div class="stack-img reveal">
+      <div class="img-placeholder">Render 1</div>
     </div>
-     <div class="img-block layout-2col reveal">
-      <div class="img-item">
-        <img src="images\cozy kitchen (2).png">
-      </div>
-      <div class="img-item">
-        <img src="images\cozy kitchen (3).png">
-      </div>
+    <div class="stack-img reveal">
+      <div class="img-placeholder">Render 2</div>
     </div>
-    <div class="img-block layout-2col reveal">
-      <div class="img-item">
-        <img src="images\cozy kitchen (4).png">
-      </div>
-      <div class="img-item">
-        <img src="images\cozy kitchen (5).png">
-      </div>
+    <div class="stack-img reveal">
+      <div class="img-placeholder">Render 3</div>
     </div>
-
+    <div class="stack-img reveal">
+      <div class="img-placeholder">Render 4</div>
+    </div>
+    <div class="stack-img reveal">
+      <div class="img-placeholder">Render 5</div>
+    </div>
   </section>
 
   <!-- Next Project CTA -->
-  <a href="sa-10-grumble.html" class="next-project">
+  <a href="bedroom-in-book.html" class="next-project">
     <div class="next-inner">
       <p class="next-label">Next Project</p>
-      <h2 class="next-title">SA-10 Grumble</h2>
+      <h2 class="next-title">Bed Room Inside a Book</h2>
       <div class="next-arrow">
         View Project
         <svg width="20" height="10" viewBox="0 0 20 10" fill="none">
@@ -1015,7 +908,7 @@
   });
 
   // Real images
-  document.querySelectorAll('.stack-img img, .img-cell img, .img-full img, .img-item img').forEach(img => {
+  document.querySelectorAll('.stack-img img, .img-cell img, .img-full img').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', e => {
       e.stopPropagation();
