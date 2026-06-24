@@ -45,17 +45,17 @@
   .back-link:hover svg { transform: translateX(-3px); }
   .back-link svg { transition: transform 0.3s var(--ease); }
   .project-meta { display: flex; flex-direction: column; gap: 28px; flex: 1; }
-  .meta-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm); margin-bottom: 6px; }
-  .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 400; color: var(--ink); line-height: 1.4; }
+  .meta-label { font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm); margin-bottom: 6px; }
+  .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: var(--ink); line-height: 1.4; }
   .meta-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
-  .tag { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dust);
+  .tag { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dust);
     border: 1px solid rgba(196,149,106,0.3); padding: 3px 10px; border-radius: 20px; }
   .sidebar-footer { margin-top: auto; padding-top: 32px; border-top: 1px solid rgba(196,149,106,0.15); }
   .project-nav { display: flex; flex-direction: column; gap: 12px; }
-  .project-nav a { font-size: 12px; color: var(--dust); text-decoration: none;
+  .project-nav a { font-size: 14px; color: var(--dust); text-decoration: none;
     letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
   .project-nav a:hover { color: var(--warm); }
-  .nav-dir { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm); display: block; margin-bottom: 2px; }
+  .nav-dir { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm); display: block; margin-bottom: 2px; }
 
   /* ── MAIN ────────────────────────────────────── */
   .main { margin-left: var(--sidebar-w); min-height: 100vh; }
@@ -216,7 +216,7 @@
     background: linear-gradient(to right, rgba(196,149,106,0.35), transparent);
   }
 
-  /* ── NEXT PROJECT ────────────────────────────── */
+   /* ── NEXT PROJECT ────────────────────────────── */
   .next-project { height: 380px; background: var(--deep); display: flex; align-items: center;
     justify-content: center; text-align: center; text-decoration: none; position: relative;
     overflow: hidden; cursor: pointer; }
@@ -224,13 +224,13 @@
     background: linear-gradient(135deg, #3a2010, #5a3020); opacity: 0; transition: opacity 0.6s var(--ease); }
   .next-project:hover::before { opacity: 1; }
   .next-inner { position: relative; z-index: 1; }
-  .next-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  .next-label { font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
     color: rgba(196,149,106,0.6); margin-bottom: 20px; }
   .next-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px,4vw,56px);
     font-weight: 300; color: var(--bone); line-height: 1.1; transition: color 0.4s; }
   .next-project:hover .next-title { color: var(--warm); }
   .next-arrow { margin-top: 28px; display: inline-flex; align-items: center; gap: 12px;
-    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm);
+    font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm);
     transition: gap 0.3s var(--ease); }
   .next-project:hover .next-arrow { gap: 20px; }
 
